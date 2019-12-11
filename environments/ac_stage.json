@@ -1,0 +1,37 @@
+{
+  "name": "ac_stage",
+  "cookbook_versions": {
+    "ms": ">= 1.0.1"
+  },
+  "override_attributes": {
+    "chef-client": {
+      "interval": "20",
+      "splay": "20"
+    },
+    "java": {
+      "install_flavor": "oracle",
+      "jdk_version": "8",
+      "oracle": {
+        "accept_oracle_download_terms": "true"
+      }
+    },
+    "ac_base": {
+      "environment": "stage",
+      "htpasswd_file": "/etc/ac_htpasswd",
+      "users": {
+        "mohits": {
+          "htpasswd": "33aec9bd-8c80-4a75-9a8c-5438b6f18016",
+          "ssh_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDmp1xCLXMizWE2Qt6v8lzDhbXhqt2ImCQXnltTC9rAt7Czy1ZafK0NBdyfs30KMv9POiMzxPnrXPSAr3wa8bV2ZZMGjlynFIHBuw0atWZjMPrsTS13D9Dply3LAd+EpzO7un0owNG7ACemWqqISxuCO5FC1dXIqIJ1YRjmH+IRlKlBHBkMQVwLZ8xOVFA/f28HJvBVe44I6wc/Ep5an/2UG9mcZHoezX5+R/n+emFTpRtoOuFcwi72f+YaC2emYssMGiMsL4Of7BC8VvcpC0yfmaiAAh8cZPnuIyWKj7efBQ4FeNHoim2MRxDbwLvNyAisljUl3zGa0mMzuWuudKQz z001bn4@6c4008a1a6fc"
+        },
+        "manishs": {
+          "htpasswd": "50685efa-0f89-44b3-b202-a8869e4c7ab3",
+          "ssh_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy8b9xkhEejHQm79fLFPUhViZjsQNlgdYqa+JiDvgNDWnk1xU3t+RIb/CV5nqpWrp2NhH3YI/HHNmbeowJBF82cCGvOPBXtcGRXmAgS290WLUH9rW4lbdMroMevTbYEuIQ7X6TFWHJPCju72yx1KpbLDgbRGFuoRKTVvKxUkv/pfx99rY9LsCW35kHtFfRElkLkoKAN7WHOF+tyKe3v+DV2Ox/BYf9CBLaXLnB9Y9+imNBZxs1rr8cxoiZXixAjEx+mj4g/MR7C5+v3Da/AZlb+ycvjZ2Qy483AuQn30H56ZXAuuN1LLMeM6Gxs2FZWlSYPvIjaUXn3QAf40kejDDv manish@Manishs-MBP"
+        },
+        "ubuntu": {
+          "htpasswd": "50685efa-0f89-44b3-b202-a8869e4c7ab3",
+          "ssh_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDmp1xCLXMizWE2Qt6v8lzDhbXhqt2ImCQXnltTC9rAt7Czy1ZafK0NBdyfs30KMv9POiMzxPnrXPSAr3wa8bV2ZZMGjlynFIHBuw0atWZjMPrsTS13D9Dply3LAd+EpzO7un0owNG7ACemWqqISxuCO5FC1dXIqIJ1YRjmH+IRlKlBHBkMQVwLZ8xOVFA/f28HJvBVe44I6wc/Ep5an/2UG9mcZHoezX5+R/n+emFTpRtoOuFcwi72f+YaC2emYssMGiMsL4Of7BC8VvcpC0yfmaiAAh8cZPnuIyWKj7efBQ4FeNHoim2MRxDbwLvNyAisljUl3zGa0mMzuWuudKQz z001bn4@6c4008a1a6fc"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "stage_apps",
+  "default_attributes": {
+    "payment_url": "https://ap1.paypal.com"
+  }
+}

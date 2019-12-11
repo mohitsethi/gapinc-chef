@@ -1,0 +1,6 @@
+{
+  "name": "dev_apps",
+  "default_attributes": {
+    "payment_url": "https://sandbox-1.paypal.com"
+  }
+}

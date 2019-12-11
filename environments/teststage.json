@@ -1,0 +1,12 @@
+{
+  "name": "teststage",
+  "override_attributes": {
+    "ms": {
+      "package_list": [
+        "apache2",
+        "vim",
+        "git"
+      ]
+    }
+  }
+}
