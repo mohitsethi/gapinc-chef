@@ -12,11 +12,18 @@
 # int func1(value) do
 # end
 
-package 'apache2' do
-    action  :install
-    # version node['gapinfo']['version_vim']
-    # run-1: vim v1
-    # run-2: vim v2
+# Install deps
+#  - apache2
+#  - vim
+
+
+node['gapinfo']['pkgs'].each do |pkg|
+    package pkg do
+        action  :install
+        # version node['gapinfo']['version_vim']
+        # run-1: vim v1
+        # run-2: vim v2
+    end
 end
 
 # cookbook_file '/var/www/html/index.html' do
@@ -27,7 +34,7 @@ end
 
 
 template '/var/www/html/index.html' do
-    source 'index.html'
+    source 'index.html.erb'
     mode '0644'
     action :create
 end

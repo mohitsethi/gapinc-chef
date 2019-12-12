@@ -1,6 +1,8 @@
 
 default['gapinfo']['version_vim'] = 'latest'
 
+default['gapinfo']['pkgs'] = ['apache2', 'vim']
+
 default['gapinfo']['app1']['db']['username'] = "_default_username"
 default['gapinfo']['app1']['db']['password'] = "_default_password"
 

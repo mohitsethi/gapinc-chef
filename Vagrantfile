@@ -30,9 +30,9 @@ Vagrant.configure("2") do |config|
       chef.arguments = "--chef-license accept"
       chef.node_name = "chef_vm1"
       chef.validation_client_name = 'mohitsethi'
-      chef.add_recipe "gapinfo::default"
+      # chef.add_recipe "gapinfo::default"
       # Or maybe a role
-      # chef.add_role "web"
+      chef.add_role "web"
     end
 
   end
