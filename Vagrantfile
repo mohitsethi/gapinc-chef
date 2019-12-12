@@ -18,11 +18,23 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :vm1 do |vm_config|
     vm_config.vm.network "private_network", ip: "33.33.32.1"
-    # vm_config.vm.network :forwarded_port, guest: 80, host: 8080
+    vm_config.vm.network :forwarded_port, guest: 80, host: 8080
     vm_config.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", 256]
       # vb.gui = true
     end
+
+    vm_config.vm.provision "chef_client" do |chef|
+      chef.chef_server_url = "https://api.chef.io/organizations/appliedcode"
+      chef.validation_key_path = "/Users/z001bn4/code/mohitsethi/gapinc-chef/.chef/mohitsethi.pem"
+      chef.arguments = "--chef-license accept"
+      chef.node_name = "chef_vm1"
+      chef.validation_client_name = 'mohitsethi'
+      chef.add_recipe "gapinfo::default"
+      # Or maybe a role
+      # chef.add_role "web"
+    end
+
   end
 
   config.vm.define :vm2 do |vm_config|

@@ -19,12 +19,18 @@ package 'apache2' do
     # run-2: vim v2
 end
 
-cookbook_file '/var/www/index.html' do
+# cookbook_file '/var/www/html/index.html' do
+#     source 'index.html'
+#     mode '0644'
+#     action :create
+# end
+
+
+template '/var/www/html/index.html' do
     source 'index.html'
     mode '0644'
     action :create
 end
-
 
 #    ddddd file '/etc/chef/client.rb' do
 #         action :create_if_missing
