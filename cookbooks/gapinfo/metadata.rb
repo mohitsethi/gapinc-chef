@@ -1,11 +1,15 @@
 name 'gapinfo'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Mohit'
+maintainer_email 'mohit@sethis.in'
 license 'All Rights Reserved'
 description 'Installs/Configures gapinfo'
 long_description 'Installs/Configures gapinfo'
 version '0.1.5'
 chef_version '>= 12.1' if respond_to?(:chef_version)
+
+
+
+# depends 'gap_infra_certs', '< 1.0'
 
 # The `issues_url` points to the location where issues for this cookbook are
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when

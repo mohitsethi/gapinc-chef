@@ -33,6 +33,7 @@ Vagrant.configure("2") do |config|
       # chef.add_recipe "gapinfo::default"
       # Or maybe a role
       chef.add_role "web"
+      # chef.environment "stage"
     end
 
   end
