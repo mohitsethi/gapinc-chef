@@ -1,6 +1,9 @@
 ---
 driver:
-  name: vagrant
+  name: azurerm
+  subscription_id: '<%= ENV['http_proxy'] %>'
+  location: '<%= ENV['http_proxy'] %>'
+  machine_size: '<%= ENV['http_proxy'] %>'
 
 provisioner:
   name: chef_zero
@@ -9,20 +12,24 @@ provisioner:
   #   always_update_cookbooks: <%= !ENV['CI'] %>
   always_update_cookbooks: true
 
-# verifier:
-#   name: inspec
+  # client_rb:
+    # chef_license: accept
+  chef_license: accept-no-persist
+
+verifier:
+  name: inspec
 
 platforms:
   - name: ubuntu-18.04
     driver:
       box: ubuntu/xenial64
-  # - name: centos-7
+  - name: centos-7
 
 suites:
   - name: default
     run_list:
       - recipe[gapinfo::default]
-    # verifier:
-    #   inspec_tests:
-    #     - test/smoke/default
+    verifier:
+      inspec_tests:
+        - test/smoke/default
     attributes:

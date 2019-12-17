@@ -18,9 +18,33 @@
 
 
 # node.force_default['gapinfo']['pkgs'] = ["testpkg"]
+pkg_name = ''
 
-package 'apache2' do
-    action :install
+if platform?('ubuntu')
+    package 'apache2' do
+        action :install
+    end
+elsif platform_family?('rhel')
+    package 'httpd' do
+        action :install
+    end
+
+    service 'httpd' do
+        action [:start, :enable]
+    end 
+end
+
+
+
+nuas = data_bag('gap-team1-info')
+nuas.each do |_nua|
+    # This causes a round-trip to the server for each admin in the data bag
+    list_of_nuas = data_bag_item('nua', _nua)
+    list_of_nuas.each do |n|
+        user n do 
+            action :create
+        end
+    end
 end
 
 # node['gapinfo']['pkgs'].each do |pkg|
@@ -35,14 +59,6 @@ end
 
 # node === env[stage] or prod
 
-if run_context.chef_environment == 'prod'
-
-else 
-
-    # stage
-
-end
-
 # cookbook_file '/var/www/html/index.html' do
 #     source 'index.html'
 #     mode '0644'
@@ -56,9 +72,6 @@ template '/var/www/html/index.html' do
     action :create
 end
 
-if platform?('redhat')
-    notify_team_1('test@example.com')
-end
 #    ddddd file '/etc/chef/client.rb' do
 #         action :create_if_missing
 #         # action :create
